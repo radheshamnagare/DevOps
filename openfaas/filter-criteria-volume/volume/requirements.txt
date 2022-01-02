@@ -1,0 +1,7 @@
+tabulate
+ta
+ta-lib
+modin
+pandas
+numpy     
+yfinance==0.1.63  

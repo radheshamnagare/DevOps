@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: servicepod
+   labels:
+      servicename : svc1
+spec: 
+  type: NodePort
+  ports:
+    - nodePort: 32000
+      port : 9000
+      targetPort: 80
+  selector :
+    app: myapp    

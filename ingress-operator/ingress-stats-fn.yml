@@ -1,0 +1,75 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-stats-fn
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  rules:
+    - host: finmarka.com
+      http:
+        paths:
+          - path: /talib/ema
+            pathType: Prefix
+            backend:
+              service:
+                name: web1
+                port:
+                  number: 8080
+          - path: /talib/slope
+            pathType: Prefix
+            backend:
+              service:
+                name: web2
+                port:
+                  number: 8080 
+          - path: /talib/aroon
+            pathType : Prefix
+            backend:
+              service:
+                name: web3
+                port:
+                  number: 8080
+          - path: /talib/volume
+            pathType: Prefix
+            backend:
+              service:
+                name: web4
+                port:
+                  number: 8080
+          - path: /talib/tstatsvolume
+            pathType: Prefix
+            backend:
+              service:
+                name: web5
+                port:
+                  number: 8080
+          - path: /talib/tstatopenclose
+            pathType: Prefix
+            backend:
+              service:
+                name: web6
+                port:
+                  number: 8080
+          - path: /talib/tstattruefalse
+            pathType : Prefix
+            backend:
+              service:
+                name: web7
+                port:
+                  number: 8080
+          - path: /talib/bband
+            pathType : Prefix
+            backend:
+              service:
+                name: web8
+                port:
+                  number: 8080
+          - path: /talib/sar
+            pathType: Prefix
+            backend:
+              service:
+                name: web9
+                port:
+                  number: 8080                        
+
